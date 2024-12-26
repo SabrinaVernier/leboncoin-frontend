@@ -13,9 +13,7 @@ onMounted(async () => {
     const { data } = await axios.get(
       'https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers?populate[0]=owner.avatar&populate[1]=pictures',
     )
-    // console.log(data.data) // array(25) [{..},{..},{..}..]
     offersList.value = data.data
-    // console.log(offersList.value) // array(25) [{..},{..},{..}..]
   } catch (error) {
     console.log('catch HomeView >>>', error)
   }
@@ -26,7 +24,7 @@ onMounted(async () => {
   <main>
     <p v-if="offersList.length === 0" class="container">Chargement en cours...</p>
     <div v-else class="container">
-      <p>Des millions de petites annonces et autant d'occasions de se faire plaisir</p>
+      <h1>Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
 
       <TimeToSell />
 
@@ -51,8 +49,9 @@ onMounted(async () => {
   gap: 15px;
 }
 
-main > p {
+h1 {
   font-size: 24px;
+  font-weight: bold;
 }
 
 .container > p {

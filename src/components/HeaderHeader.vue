@@ -1,7 +1,17 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
+import { inject } from 'vue'
 
 import BtnPublishOffer from '../components/BtnPublishOffer.vue'
+
+const globalStore = inject('GlobalStore')
+
+const router = useRouter()
+
+const disconnect = () => {
+  globalStore.connectedUser.value = []
+  router.push({ name: 'home' })
+}
 </script>
 <template>
   <header>
@@ -19,9 +29,20 @@ import BtnPublishOffer from '../components/BtnPublishOffer.vue'
           </div>
         </div>
 
-        <div class="user-sign-in">
+        <div class="user-log-in">
           <font-awesome-icon :icon="['far', 'user']" />
-          <button>Se connecter</button>
+          <RouterLink :to="{ name: 'login' }" v-if="globalStore.connectedUser.value.length === 0">
+            <button>Se connecter</button>
+          </RouterLink>
+
+          <div v-else>
+            <p>
+              {{ globalStore.connectedUser.value[0].username }}
+            </p>
+            <div class="disconnect-icon">
+              <font-awesome-icon :icon="['fas', 'sign-out-alt']" @click="disconnect()" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -54,8 +75,6 @@ header {
   height: var(--header-height);
   padding-top: 10px;
   border-bottom: 1px solid var(--grey);
-
-  /* bonus2-----header fixe haut de page */
   position: fixed;
   top: 0;
   width: 100%;
@@ -106,17 +125,26 @@ section {
   border: none;
   background-color: var(--orange);
 }
-/* user sign in */
-.user-sign-in {
+/* user-log-in--- */
+.user-log-in {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
+  text-decoration: none;
+  color: var(--black);
+  position: relative;
+  padding: 0px 20px;
 }
-.user-sign-in button {
+.user-log-in button {
   border: none;
   background-color: #fff;
   font-size: 12px;
+}
+.disconnect-icon {
+  position: absolute;
+  right: 0px;
+  top: 10px;
 }
 
 /* ----section bottom--------- */
