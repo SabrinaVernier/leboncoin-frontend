@@ -1,3 +1,4 @@
+<!-- eslint-disable no-undef -->
 <script setup>
 import { ref, inject } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
@@ -39,6 +40,8 @@ const userSignup = async () => {
         },
       )
       globalStore.changeToken({ username: data.user.username, jwt: data.jwt })
+
+      $cookies.set('userInfos', globalStore.connectedUser.value)
 
       contentButton.value = 'Inscription effectuée'
       router.push({ name: 'home' })
@@ -146,7 +149,8 @@ form {
   gap: 10px;
 }
 
-/* ---------champs---------- */
+/* -----fields------------- */
+/* -label----- */
 label {
   display: flex;
   flex-direction: column;
@@ -169,6 +173,7 @@ label:nth-of-type(3) svg {
   color: var(--middle-grey);
 }
 
+/* -input----- */
 input {
   height: 40px;
   width: 100%;
@@ -196,7 +201,7 @@ input[name='password'] {
   border-radius: 10px;
 }
 
-/* -----button s'inscrire---- */
+/* -----button 's'inscrire'---- */
 button {
   height: 40px;
   background-color: var(--orange);

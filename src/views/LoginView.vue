@@ -1,3 +1,4 @@
+<!-- eslint-disable no-undef -->
 <script setup>
 import { RouterLink, useRouter } from 'vue-router'
 import { ref, inject } from 'vue'
@@ -26,7 +27,7 @@ const clearErrorMessage = () => {
 
 const userLogin = async () => {
   errorMessage.value = ''
-  console.log('submit')
+  // console.log('submit')
   if (identifier.value && password.value) {
     contentButton.value = 'Connexion en cours...'
     try {
@@ -35,6 +36,7 @@ const userLogin = async () => {
         { identifier: identifier.value, password: password.value },
       )
       globalStore.changeToken({ username: data.user.username, jwt: data.jwt })
+      $cookies.set('userInfos', globalStore.connectedUser.value)
 
       // console.log(globalStore.connectedUser.value)
       contentButton.value = 'Connecté'
@@ -132,7 +134,8 @@ form {
   gap: 10px;
 }
 
-/* -------champs--------- */
+/* -------fields--------- */
+/* -label--- */
 label {
   display: flex;
   flex-direction: column;
@@ -155,6 +158,7 @@ label:nth-of-type(2) svg {
   color: var(--middle-grey);
 }
 
+/* -input--- */
 input {
   height: 40px;
   width: 100%;
@@ -181,7 +185,7 @@ input[name='identifier'] {
   border-radius: 10px;
 }
 
-/* -----button se connecter---- */
+/* -----button 'se connecter'---- */
 button {
   height: 40px;
   background-color: var(--orange);

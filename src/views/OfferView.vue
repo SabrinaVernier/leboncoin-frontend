@@ -48,7 +48,7 @@ const adjustedPrice = computed(() => {
   return price
 })
 
-// bonu3-----------
+// bonu3-caroussel-----------
 const cycleList = computed(() => {
   if (selectedOffer.value.attributes.pictures.data) {
     const { state, prev, next } = useCycleList(selectedOffer.value.attributes.pictures.data)
@@ -65,15 +65,20 @@ const cycleList = computed(() => {
     <div v-else class="container">
       <section class="section-infos">
         <div
+          v-if="selectedOffer.attributes.pictures.data"
           class="caroussel"
-          :class="{ singlePicture: selectedOffer.attributes.pictures.data.length === 1 }"
+          :class="{
+            singlePicture: selectedOffer.attributes.pictures.data.length === 1,
+          }"
         >
           <font-awesome-icon
             :icon="['fas', 'angle-left']"
             @click="cycleList.prev()"
             v-if="selectedOffer.attributes.pictures.data?.length > 1"
           />
+
           <img :src="cycleList.state.value.attributes.url" alt="article" class="img-article" />
+
           <font-awesome-icon
             :icon="['fas', 'angle-right']"
             @click="cycleList.next()"
@@ -109,10 +114,12 @@ const cycleList = computed(() => {
               />
               <p class="bold">{{ selectedOffer.attributes.owner.data.attributes.username }}</p>
             </div>
+
             <p class="verification">
               <font-awesome-icon :icon="['fas', 'check-double']" class="check-double" /> Pièce
               d'identité vérifiée
             </p>
+
             <p class="response-time">
               <font-awesome-icon :icon="['far', 'clock']" />Répond généralement en 1h
             </p>
@@ -245,7 +252,7 @@ section {
   background-color: var(--blue);
 }
 
-/* icôn----- */
+/* icon----- */
 svg {
   margin-right: 10px;
 }

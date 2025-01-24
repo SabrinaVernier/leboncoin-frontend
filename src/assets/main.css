@@ -35,6 +35,11 @@ main {
 }
 
 button {
-  font-family: 'nunito sans', serif;
+  font-family: 'Nunito Sans', serif;
+  font-size: inherit;
   cursor: pointer;
+}
+
+input:focus {
+  outline: none;
 }

@@ -1,9 +1,12 @@
 import './assets/main.css'
 
 import { createApp, ref } from 'vue'
+import VueCookies from 'vue-cookies'
+
 import App from './App.vue'
 import router from './router'
 
+//-----icons------------------
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
@@ -14,6 +17,7 @@ import {
   faEyeSlash,
   faEye,
 } from '@fortawesome/free-regular-svg-icons'
+
 import {
   faSearch,
   faCheckDouble,
@@ -46,9 +50,15 @@ const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(router)
 
-const connectedUser = ref([])
+//-----cookies--------------------
+app.use(VueCookies)
+
+// -----provider----------------
+const connectedUser = ref(VueCookies.get('userInfos') || [])
+
 const changeToken = (userInfos) => {
   connectedUser.value.push(userInfos)
+  // console.log(connectedUser.value)
 }
 
 app.provide('GlobalStore', { connectedUser: connectedUser, changeToken: changeToken })

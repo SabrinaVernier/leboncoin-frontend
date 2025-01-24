@@ -58,6 +58,7 @@ const adjustedPrice = computed(() => {
         </div>
 
         <img
+          v-if="pictures.data !== null"
           :src="pictures.data[0].attributes.url"
           :alt="pictures.data[0].attributes.name"
           class="article"

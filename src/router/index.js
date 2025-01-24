@@ -11,6 +11,15 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      props: (route) => {
+        return {
+          page: parseInt(route.query.page) || 1,
+          title: route.query.title || '',
+          sort: route.query.sort || '',
+          minprice: Number(route.query.minprice) || '',
+          maxprice: Number(route.query.maxprice) || '',
+        }
+      },
     },
     {
       path: '/offer/:id',
@@ -29,6 +38,9 @@ const router = createRouter({
       component: LoginView,
     },
   ],
+  scrollBehavior() {
+    return { top: 0, left: 0 }
+  },
 })
 
 export default router

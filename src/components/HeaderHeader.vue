@@ -1,16 +1,40 @@
+<!-- eslint-disable no-undef -->
 <script setup>
-import { RouterLink, useRouter } from 'vue-router'
-import { inject } from 'vue'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+import { inject, ref } from 'vue'
 
 import BtnPublishOffer from '../components/BtnPublishOffer.vue'
 
 const globalStore = inject('GlobalStore')
+// console.log(globalStore.connectedUser.value)
 
+const route = useRoute()
 const router = useRouter()
 
 const disconnect = () => {
+  $cookies.remove('userInfos')
   globalStore.connectedUser.value = []
   router.push({ name: 'home' })
+}
+
+const text = ref('')
+
+const handleSubmit = () => {
+  // console.log('handleSubmit>>>', text.value, route.query)
+  const queries = { ...route.query }
+
+  if (text.value) {
+    queries.title = text.value
+  } else {
+    delete queries.title
+  }
+
+  queries.page = 1
+
+  router.push({
+    name: 'home',
+    query: queries,
+  })
 }
 </script>
 <template>
@@ -23,10 +47,16 @@ const disconnect = () => {
 
         <div class="deposit-search">
           <BtnPublishOffer />
-          <div class="div-input">
-            <input type="text" placeholder="Rechercher sur leboncoin" name="search" id="search" />
+          <form action="sort by title" @submit.prevent="handleSubmit">
+            <input
+              type="text"
+              placeholder="Rechercher sur leboncoin"
+              name="search"
+              id="search"
+              v-model="text"
+            />
             <button><font-awesome-icon :icon="['fas', 'search']" /></button>
-          </div>
+          </form>
         </div>
 
         <div class="user-log-in">
@@ -104,21 +134,25 @@ section {
   align-items: center;
   gap: 20px;
 }
-.div-input {
+.deposit-search svg {
+  font-size: 13px;
+}
+form {
   background-color: var(--light-grey);
   padding: 5px 10px;
   border-radius: 10px;
 }
-.div-input input {
+form input {
   background-color: var(--light-grey);
   border: none;
   font-size: 12px;
   width: 250px;
 }
-.div-input input::placeholder {
+form input::placeholder {
   color: #757575;
+  font-size: 16px;
 }
-.div-input button {
+form button {
   height: 30px;
   width: 30px;
   border-radius: 7px;
@@ -136,6 +170,9 @@ section {
   position: relative;
   padding: 0px 20px;
 }
+.user-log-in p {
+  font-size: 12px;
+}
 .user-log-in button {
   border: none;
   background-color: #fff;
@@ -145,6 +182,9 @@ section {
   position: absolute;
   right: 0px;
   top: 10px;
+}
+.disconnect-icon svg {
+  color: var(--grey);
 }
 
 /* ----section bottom--------- */
