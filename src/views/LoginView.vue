@@ -1,6 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script setup>
-import { RouterLink, useRouter } from 'vue-router'
+import { RouterLink, useRouter, useRoute } from 'vue-router'
 import { ref, inject } from 'vue'
 
 import axios from 'axios'
@@ -15,6 +15,7 @@ const errorMessage = ref('')
 const globalStore = inject('GlobalStore')
 
 const router = useRouter()
+const route = useRoute()
 
 // bonus1--------
 const visiblePassword = ref(false)
@@ -35,17 +36,21 @@ const userLogin = async () => {
         `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/auth/local`,
         { identifier: identifier.value, password: password.value },
       )
-      globalStore.changeToken({ username: data.user.username, jwt: data.jwt })
+      globalStore.changeToken({ username: data.user.username, jwt: data.jwt, id: data.user.id })
+      console.log('login id >>>', data.user.id)
+      console.log('data', data)
+
       $cookies.set('userInfos', globalStore.connectedUser.value)
 
-      // console.log(globalStore.connectedUser.value)
       contentButton.value = 'Connecté'
-      router.push({ name: 'home' })
+
+      // ajout condition redirect ou pas navigation guards------
+      router.push({ name: route.query.redirect || 'home' })
     } catch (error) {
       contentButton.value = 'Se connecter'
       errorMessage.value = '"Invalid identifier or password", veuillez essayer à nouveau '
 
-      console.log('LoginView - catch>>', error.response.data.error.message)
+      console.log('LoginView - catch>>', error)
     }
   } else {
     contentButton.value = 'Se connecter'
@@ -58,7 +63,7 @@ const userLogin = async () => {
 <template>
   <main>
     <div class="container">
-      <form action="connexion" @submit.prevent="userLogin">
+      <form action="log-in" @submit.prevent="userLogin">
         <h2>Bonjour !</h2>
         <p>Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
 

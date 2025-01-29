@@ -2,6 +2,7 @@
 
 :root {
   --light-orange: #ffe9de;
+  --sweet-orange: #f7aa7e;
   --orange: #ec5a13;
   --light-grey: #edf4fb;
   --middle-grey: #4f4f4f;
@@ -40,6 +41,7 @@ button {
   cursor: pointer;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }

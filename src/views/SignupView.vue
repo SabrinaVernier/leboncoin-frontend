@@ -39,7 +39,7 @@ const userSignup = async () => {
           password: password.value,
         },
       )
-      globalStore.changeToken({ username: data.user.username, jwt: data.jwt })
+      globalStore.changeToken({ username: data.user.username, jwt: data.jwt, id: data.user.id })
 
       $cookies.set('userInfos', globalStore.connectedUser.value)
 
@@ -61,7 +61,7 @@ const userSignup = async () => {
 <template>
   <main>
     <div class="container">
-      <form action="inscription" @submit.prevent="userSignup()">
+      <form action="sign-up" @submit.prevent="userSignup()">
         <h2>Bonjour !</h2>
         <p>Inscrivez-vous pour découvrir toutes nos fonctionnalités.</p>
 

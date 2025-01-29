@@ -27,6 +27,7 @@ import {
   faAngleLeft,
   faArrowRight,
   faSignOutAlt,
+  faCamera,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -44,6 +45,7 @@ library.add(
   faSignOutAlt,
   faEyeSlash,
   faEye,
+  faCamera,
 )
 
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
@@ -61,6 +63,9 @@ const changeToken = (userInfos) => {
   // console.log(connectedUser.value)
 }
 
-app.provide('GlobalStore', { connectedUser: connectedUser, changeToken: changeToken })
+app.provide('GlobalStore', {
+  connectedUser,
+  changeToken,
+})
 
 app.mount('#app')
