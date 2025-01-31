@@ -1,13 +1,12 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
+
 import { useCycleList } from '@vueuse/core'
 
 import axios from 'axios'
 
-const props = defineProps({
-  id: String,
-})
-// console.log(props.id) // 18
+const props = defineProps({ id: String })
 
 const selectedOffer = ref(null)
 
@@ -126,7 +125,12 @@ const cycleList = computed(() => {
           </div>
 
           <div class="div-button">
-            <button>Acheter</button>
+            <button>
+              <RouterLink :to="{ name: 'payment', params: { id: selectedOffer.id } }"
+                >Acheter</RouterLink
+              >
+            </button>
+
             <button>Message</button>
           </div>
         </div>
@@ -250,6 +254,11 @@ section {
 }
 .div-button button:last-child {
   background-color: var(--blue);
+}
+/* --routerLink-- */
+a {
+  color: white;
+  text-decoration: none;
 }
 
 /* icon----- */

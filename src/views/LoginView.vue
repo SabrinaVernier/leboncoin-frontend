@@ -45,7 +45,7 @@ const userLogin = async () => {
       contentButton.value = 'Connecté'
 
       // ajout condition redirect ou pas navigation guards------
-      router.push({ name: route.query.redirect || 'home' })
+      router.push({ path: route.query.redirect || '/' })
     } catch (error) {
       contentButton.value = 'Se connecter'
       errorMessage.value = '"Invalid identifier or password", veuillez essayer à nouveau '

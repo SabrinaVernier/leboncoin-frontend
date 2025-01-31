@@ -4,6 +4,7 @@ import { inject } from 'vue'
 import HomeView from '../views/HomeView.vue'
 import SignupView from '@/views/SignupView.vue'
 import LoginView from '@/views/LoginView.vue'
+import PaymentView from '@/views/PaymentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -46,6 +47,15 @@ const router = createRouter({
         requireAuth: true,
       },
     },
+    {
+      path: '/payment/:id',
+      name: 'payment',
+      component: PaymentView,
+      props: true,
+      meta: {
+        requireAuth: true,
+      },
+    },
   ],
   scrollBehavior() {
     return { top: 0, left: 0 }
@@ -57,7 +67,7 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   const globalStore = inject('GlobalStore')
   if (to.meta.requireAuth && globalStore.connectedUser.value.length === 0) {
-    return { name: 'login', query: { redirect: to.name } }
+    return { name: 'login', query: { redirect: to.path } }
   }
 })
 
