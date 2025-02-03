@@ -29,6 +29,7 @@ import {
   faSignOutAlt,
   faCamera,
   faCheck,
+  faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -43,6 +44,7 @@ library.add(
   faAngleRight,
   faAngleLeft,
   faArrowRight,
+  faArrowLeft,
   faSignOutAlt,
   faEyeSlash,
   faEye,
