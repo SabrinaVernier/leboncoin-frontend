@@ -1,7 +1,7 @@
 <!-- eslint-disable no-undef -->
 <script setup>
 import { ref, inject } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
+import { RouterLink, useRouter, useRoute } from 'vue-router'
 
 import axios from 'axios'
 
@@ -16,6 +16,7 @@ const errorMessage = ref('')
 const globalStore = inject('GlobalStore')
 
 const router = useRouter()
+const route = useRoute()
 
 // bonus1--------
 const visiblePassword = ref(false)
@@ -44,7 +45,7 @@ const userSignup = async () => {
       $cookies.set('userInfos', globalStore.connectedUser.value)
 
       contentButton.value = 'Inscription effectuée'
-      router.push({ name: 'home' })
+      router.push({ path: route.query.redirect || '/' })
     } catch (error) {
       contentButton.value = "S'inscrire"
       errorMessage.value =
