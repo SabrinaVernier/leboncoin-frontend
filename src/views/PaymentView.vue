@@ -120,11 +120,11 @@ const updateTotal = computed(() => {
 </script>
 <template>
   <main>
-    <div class="container">
+    <div class="container" id="payment-bloc">
       <h2>Finalisez votre paiement</h2>
       <div>
         <section class="first-col">
-          <div class="identity-infos">
+          <div class="identity-infos" id="identity-infos">
             <div>
               <h3>Informations personnelles</h3>
               <p>Une pièce d’identité vous sera demandée pour récupérer votre colis.</p>
@@ -162,7 +162,7 @@ const updateTotal = computed(() => {
             commande.
           </p>
           <span v-if="confirmedPayment">Commande effectuée</span>
-          <div v-else class="card-infos">
+          <div v-else class="card-infos" id="card-infos">
             <h3>Coordonnées bancaires</h3>
             <div id="card-element"></div>
             <p v-if="currentTransaction">paiement en cours...</p>
@@ -212,10 +212,8 @@ const updateTotal = computed(() => {
                   />
                   <div>
                     <label for="atHome">Remise en main propre</label>
-                    <p>
-                      Payez en ligne et récupérez votre achat en main propre lors de votre
-                      rendez-vous avec le vendeur
-                    </p>
+                    <p>Payez en ligne et récupérez votre achat en main</p>
+                    <p>propre lors de votre rendez-vous avec le vendeur</p>
                   </div>
                 </div>
                 <div class="colissimo">
@@ -295,7 +293,6 @@ p {
 }
 
 section {
-  /* border: 1px solid red; */
   height: 100%;
 }
 
@@ -307,7 +304,6 @@ section > div {
 
 /* -----FIRST COLUMN------------- */
 .identity-infos {
-  width: 670px;
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
@@ -327,7 +323,7 @@ section > div {
   height: 245px;
 }
 
-/* -----form---------- */
+/* -----form----- */
 form {
   display: flex;
   flex-direction: column;
@@ -354,14 +350,13 @@ form input:not(input[type='tel']) {
   margin-bottom: 30px;
 }
 
-/* -----card-element */
+/* -----card-element--- */
 .card-infos {
-  width: 670px;
   padding: 20px 30px;
+  height: fit-content;
 }
 
 #card-element {
-  /* border: 1px solid plum; */
   border-radius: 10px;
   border: 1px solid var(--input-grey);
   height: 50px;
@@ -394,7 +389,7 @@ form input:not(input[type='tel']) {
 
 .second-col {
   height: 530px;
-  width: 355px;
+  min-width: 355px;
 }
 
 .second-col span {
@@ -438,11 +433,14 @@ img {
   border-radius: 5px;
 }
 
-/* -----leboncoin-infos------- */
+/* ---leboncoin-infos--- */
 .leboncoin-infos {
   border-top: 1px solid var(--input-grey);
   border-bottom: 1px solid var(--input-grey);
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* ---option--- */
@@ -462,7 +460,9 @@ img {
 }
 
 .option span {
-  margin-left: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .colissimo {
@@ -471,6 +471,7 @@ img {
 
 .colissimo > div {
   display: flex;
+  gap: 10px;
 }
 
 /* ---protection--- */
@@ -497,11 +498,10 @@ img {
 
 /* ---total--- */
 .total {
-  height: 70px;
   padding: 15px;
-  margin-top: 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* ---error-message--- */

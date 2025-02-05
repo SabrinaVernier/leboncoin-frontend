@@ -50,7 +50,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main>
+  <main id="main-homeview">
     <p v-if="!offersList" class="container no-offers">Chargement en cours...</p>
 
     <p v-else-if="offersList.length === 0" class="container no-offers">
@@ -70,8 +70,13 @@ onMounted(() => {
 
       <TimeToSell />
 
-      <div class="offerCard">
-        <OfferCard v-for="offer in offersList" :key="offer.id" :offerInfos="offer" />
+      <div class="offercards" id="offercards">
+        <OfferCard
+          class="component-card"
+          v-for="offer in offersList"
+          :key="offer.id"
+          :offerInfos="offer"
+        />
       </div>
       <PaginationPage
         :sort="sort"
@@ -93,15 +98,15 @@ onMounted(() => {
   margin-bottom: 40px;
 }
 
-.offerCard {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
 h1 {
   font-size: 24px;
   font-weight: bold;
+}
+
+.offercards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .no-offers {

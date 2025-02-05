@@ -59,7 +59,7 @@ const cycleList = computed(() => {
 })
 </script>
 <template>
-  <main>
+  <main id="main-offerview">
     <p v-if="selectedOffer === null" class="container">En cours de chargement ...</p>
     <div v-else class="container">
       <section class="section-infos">
@@ -90,6 +90,12 @@ const cycleList = computed(() => {
           <p class="bold price">{{ adjustedPrice }} €</p>
           <p class="date">{{ handleFormatDate }}</p>
         </div>
+
+        <button class="button-responsive">
+          <RouterLink :to="{ name: 'payment', params: { id: selectedOffer.id } }"
+            >Acheter</RouterLink
+          >
+        </button>
 
         <div class="div-border">
           <p class="bold description">Description</p>
@@ -141,7 +147,7 @@ const cycleList = computed(() => {
 <style scoped>
 .container {
   display: flex;
-  height: 730px;
+  height: 100%;
   padding-top: 20px;
 }
 
@@ -161,6 +167,7 @@ section {
   gap: 10px;
   font-size: 16px;
 }
+
 .section-infos > div:nth-of-type(2) {
   display: flex;
   flex-direction: column;
@@ -168,6 +175,7 @@ section {
 }
 .title {
   font-size: 24px;
+  padding-bottom: 10px;
 }
 .price,
 .description {
@@ -188,8 +196,9 @@ section {
   padding-top: 10px;
   margin: 40px 0px 20px 0px;
 }
-.div-border p {
-  margin-bottom: 20px;
+.description {
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 /* ----section user------------- */
@@ -255,6 +264,11 @@ section {
 .div-button button:last-child {
   background-color: var(--blue);
 }
+
+.button-responsive {
+  display: none;
+}
+
 /* --routerLink-- */
 a {
   color: white;

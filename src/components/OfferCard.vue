@@ -45,8 +45,8 @@ const adjustedPrice = computed(() => {
 </script>
 <template>
   <RouterLink :to="{ name: 'offerView', params: { id: offerInfos.id } }">
-    <section>
-      <div>
+    <section class="card">
+      <div class="card-user">
         <div class="user">
           <img
             v-if="avatar.data !== null"
@@ -61,7 +61,7 @@ const adjustedPrice = computed(() => {
           v-if="pictures.data !== null"
           :src="pictures.data[0].attributes.url"
           :alt="pictures.data[0].attributes.name"
-          class="article"
+          class="offercard-picture"
         />
 
         <p>{{ offerInfos.attributes.title }}</p>
@@ -103,19 +103,20 @@ a {
 .user {
   display: flex;
   align-items: center;
+  height: 25px;
 }
 .user p {
   font-size: 14px;
 }
 .avatar {
-  height: 25px;
+  height: 100%;
   width: 25px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 /* pictures---- */
-.article {
+.offercard-picture {
   height: 70%;
   width: 100%;
   object-fit: cover;

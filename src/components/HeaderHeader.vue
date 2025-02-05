@@ -38,15 +38,15 @@ const handleSubmit = () => {
 }
 </script>
 <template>
-  <header>
-    <div class="container">
+  <header id="header">
+    <div class="container" id="div-container">
       <section class="functionality">
         <RouterLink :to="{ name: 'home' }">
           <img src="../assets/imgs/logo.svg" alt="logo leboncoin" />
         </RouterLink>
 
         <div class="deposit-search">
-          <BtnPublishOffer />
+          <BtnPublishOffer class="hidden-1050" />
           <form action="sort by title" @submit.prevent="handleSubmit">
             <input
               type="text"
@@ -59,7 +59,7 @@ const handleSubmit = () => {
           </form>
         </div>
 
-        <div class="user-log-in">
+        <div class="user-log-in" id="user-log-in">
           <font-awesome-icon :icon="['far', 'user']" />
           <RouterLink :to="{ name: 'login' }" v-if="globalStore.connectedUser.value.length === 0">
             <button>Se connecter</button>
@@ -128,6 +128,7 @@ section {
 .functionality img {
   height: 28px;
 }
+
 /* div button-input-- */
 .deposit-search {
   display: flex;
@@ -159,6 +160,7 @@ form button {
   border: none;
   background-color: var(--orange);
 }
+
 /* user-log-in--- */
 .user-log-in {
   display: flex;

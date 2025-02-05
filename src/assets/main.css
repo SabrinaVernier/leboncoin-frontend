@@ -1,5 +1,11 @@
 @import './base.css';
 
+/* ---RESPONSIVE----------- */
+@import './breakpoint-1050.css' (max-width: 1050px);
+@import './breakpoint-880.css' (max-width: 880px);
+@import './breakpoint-650.css' (max-width: 650px);
+
+/* -------------------------- */
 :root {
   --light-orange: #ffe9de;
   --sweet-orange: #f7aa7e;
@@ -15,8 +21,12 @@
   --brown: #89390f;
   --black: #152233;
   --header-height: 110px;
+  --header-height-bp-650: 170px;
   --footer-height: 80px;
   --container-width: 1055px;
+  --container-width-bp-1050: 880px;
+  --container-width-bp-880: 650px;
+  --container-width-bp-650: 500px;
 }
 
 * {
@@ -24,7 +34,7 @@
 }
 
 .container {
-  width: var(--container-width);
+  max-width: var(--container-width);
   margin: 0 auto;
 }
 
@@ -38,6 +48,12 @@ main {
   margin-top: var(--header-height);
 }
 
+@media (max-width: 650px) {
+  main {
+    margin-top: var(--header-height-bp-650);
+  }
+}
+
 button {
   font-family: 'Nunito Sans', serif;
   font-size: inherit;
@@ -48,3 +64,11 @@ input:focus,
 textarea:focus {
   outline: none;
 }
+
+/* ---RESPONSIVE--------- */
+/* @media (max-width: 1050px) {
+  .container {
+    max-width: var(--container-width-bp-1050);
+    margin: 0 auto;
+  }
+} */

@@ -1,0 +1,113 @@
+/* @media(max-width: 1050px)------------------------ */
+/*  Color Mark */
+
+/* body {
+  background-color: rgb(214, 249, 214);
+} */
+
+/* ---HEADER-------------------- */
+
+header {
+  padding: 10px 20px;
+}
+.hidden-1050 {
+  display: none;
+}
+
+/* ---HOMEVIEW------------------ */
+
+#main-homeview {
+  min-width: var(--container-width-bp-1050);
+  padding: 10px;
+}
+
+/* search-by-sort-- */
+#form-sort {
+  flex-direction: column;
+  margin: 40px 0px 90px 0px;
+}
+#form-sort > button {
+  font-size: 16px;
+}
+#sortMaxMin {
+  flex-direction: column;
+  gap: 50px;
+}
+#sortMaxMin > section > p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* timetosell---- */
+/* nothing */
+
+/* offercard----- */
+#offercards {
+  gap: 40px 15px;
+  width: 100%;
+}
+.offercards .card {
+  width: 100%;
+}
+.offercards .card > div:first-child {
+  height: 385px;
+  gap: 5px;
+}
+.offercards .card > div:last-child {
+  padding-bottom: 5px;
+}
+#offercards > a {
+  line-height: unset;
+  width: calc((100% - (3 * 15px)) / 4);
+}
+.card > div > .offercard-picture {
+  height: 300px;
+  margin: 5px 0px;
+}
+
+/* ---OFFERVIEW----------------- */
+
+#main-offerview .container {
+  padding: 10px 20px 20px;
+}
+.container > .section-user {
+  display: none;
+}
+.container > .section-infos > .button-responsive {
+  display: block;
+  background-color: var(--orange);
+  padding: 12px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.container > .section-infos > .caroussel {
+  margin-right: unset;
+}
+main > .container > .section-infos > div:nth-of-type(2) {
+  gap: 20px;
+}
+main > .container > .section-infos {
+  gap: 0px;
+}
+
+/* ---PAYMENTVIEW------------------- */
+
+#payment-bloc {
+  margin: 40px 20px;
+}
+
+/* ---PUBLISVIEW--------------------- */
+
+#main-publish {
+  padding: 20px;
+}
+
+/* ---NOTFOUNDVIEW------------------- */
+
+#main-notfound .first-col {
+  margin-left: 20px;
+}

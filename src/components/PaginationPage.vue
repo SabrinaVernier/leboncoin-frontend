@@ -14,7 +14,7 @@ const selectedPage = (numPage) => {
 }
 </script>
 <template>
-  <div class="pagination">
+  <div class="pagination" id="pagination">
     <button @click="selectedPage(page - 1)" v-if="page > 1">
       <font-awesome-icon :icon="['fas', 'angle-left']" />
     </button>
@@ -23,7 +23,7 @@ const selectedPage = (numPage) => {
       <font-awesome-icon :icon="['fas', 'angle-left']" />
     </button>
 
-    <div>
+    <div class="number-page">
       <div
         @click="selectedPage(num)"
         v-for="num in numberOfPages"

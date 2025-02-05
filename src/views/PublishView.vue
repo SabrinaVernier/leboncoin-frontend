@@ -89,7 +89,7 @@ const handleSubmit = async () => {
 }
 </script>
 <template>
-  <main>
+  <main id="main-publish">
     <div class="container">
       <h3>Déposer une annonce</h3>
 
@@ -118,8 +118,8 @@ const handleSubmit = async () => {
             <textarea
               name="content"
               id="content"
-              cols="50"
-              rows="10"
+              cols="30"
+              rows="12"
               v-model="content"
               @input="
                 () => {
@@ -156,7 +156,7 @@ const handleSubmit = async () => {
           </div>
         </div>
 
-        <div>
+        <div class="select-picture">
           <label for="pictures"
             >Ajoutez des photos
             <div class="select-pictures">
@@ -166,6 +166,8 @@ const handleSubmit = async () => {
 
             <input type="file" name="pictures" id="pictures" multiple @input="handleInputFiles" />
           </label>
+
+          <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
         </div>
 
         <div class="pictures-preview" v-if="pictures">
@@ -176,8 +178,6 @@ const handleSubmit = async () => {
 
         <button v-if="!isSubmitting">Déposer mon annonce</button>
         <button v-else style="background-color: var(--sweet-orange)">Envoi en cours...</button>
-
-        <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
       </form>
     </div>
   </main>
@@ -244,7 +244,7 @@ p {
   text-align: justify;
 }
 
-/* --number-- */
+/* --input-number-- */
 .price-bloc {
   display: flex;
 }

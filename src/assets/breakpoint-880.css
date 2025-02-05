@@ -1,0 +1,107 @@
+/* @media(max-width: 880px)------------------------ */
+/*  Color Mark */
+
+/* body {
+  background-color: rgb(206, 254, 254);
+} */
+
+/* ---HEADER-------------------*/
+
+header .container .category {
+  justify-content: flex-start;
+  gap: 13px;
+  overflow: hidden;
+}
+header .container .category p {
+  flex-shrink: 0;
+}
+
+/* ---HOMEVIEW------------------ */
+
+#main-homeview {
+  min-width: var(--container-width-bp-880);
+}
+
+/* time-to-sell-- */
+#time-to-sell {
+  height: 100px;
+}
+#deposit {
+  flex-direction: column;
+  padding: 10px;
+  gap: 15px;
+}
+
+/* offercard----- */
+#offercards > a {
+  width: calc((100% - (2 * 15px)) / 3);
+  height: 450px;
+}
+
+#offercards > a .card .card-user {
+  height: 435px;
+}
+.card > div > .offercard-picture {
+  height: 350px;
+}
+
+/* ---OFFERVIEW---------------- */
+
+.container > .section-infos > .div-border .description {
+  margin-bottom: unset;
+}
+
+/* ---PAYMENTVIEW--------------- */
+
+#payment-bloc > div {
+  flex-direction: column-reverse;
+}
+#payment-bloc {
+  padding-bottom: 20px;
+}
+#payment-bloc img {
+  object-fit: unset;
+}
+#payment-bloc .second-col {
+  height: 490px;
+}
+#payment-bloc .second-col .leboncoin-infos {
+  padding-bottom: unset;
+  gap: 10px;
+}
+.second-col .leboncoin-infos > .protection {
+  height: 110px;
+}
+.second-col .leboncoin-infos > .protection > div:not(:first-child) {
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+#payment-bloc .leboncoin-infos > .option > div {
+  padding-bottom: 0px;
+}
+
+/* ---PLUBLISHVIEW---------------- */
+
+#main-publish input[type='text'],
+#main-publish textarea,
+#main-publish .content-bloc p {
+  width: 580px;
+}
+
+form .select-picture {
+  margin-bottom: 35px;
+}
+
+#main-publish form .pictures-preview > div {
+  width: calc((100% - 30px) / 4);
+}
+
+/* ---NOTFOUNDVIEW------------------- */
+
+#main-notfound .container {
+  position: relative;
+}
+#main-notfound .container .first-col {
+  position: absolute;
+  width: 100%;
+}

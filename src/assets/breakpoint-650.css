@@ -1,0 +1,141 @@
+/* @media(max-width: 650px)------------------------ */
+/* Color Mark */
+
+/* body {
+  background-color: rgb(253, 201, 209);
+} */
+
+/* ---HEADER------------------ */
+#header {
+  height: var(--header-height-bp-650);
+}
+
+#header .functionality {
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+#header .functionality .deposit-search {
+  width: 100%;
+}
+
+#header .functionality .deposit-search form {
+  width: 100%;
+  display: flex;
+}
+
+#header .functionality input {
+  width: 100%;
+}
+
+#user-log-in {
+  position: fixed;
+  right: 20px;
+}
+
+/* ---HOMEVIEW---------------- */
+
+#main-homeview {
+  min-width: var(--container-width-bp-650);
+}
+#main-homeview h1 {
+  font-size: 14px;
+}
+
+/* searchbysort--- */
+#form-sort {
+  margin-bottom: 50px;
+}
+#main-homeview .container .input-radio-display650 {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+#main-homeview .container .input-radio-hidden650 {
+  display: none;
+}
+#main-homeview .container input[type='number'] {
+  height: 35px;
+  width: 100px;
+}
+#main-homeview .container .input-number label {
+  height: 35px;
+  width: 30px;
+}
+#main-homeview .container input[type='number']::placeholder {
+  font-size: 13px;
+}
+#main-homeview .container form p {
+  font-size: 18px;
+}
+
+/* timetosell--- */
+#time-to-sell {
+  height: 90px;
+}
+#time-to-sell p {
+  font-size: 15px;
+}
+#time-to-sell img {
+  border-radius: 15%;
+  width: 110px;
+}
+#time-to-sell .img-coral {
+  object-position: right;
+}
+#time-to-sell .img-blue {
+  object-position: left;
+}
+
+/* buttonpublish--- */
+#time-to-sell button {
+  font-size: 14px;
+  padding: 10px;
+}
+/* offercard--- */
+#offercards > a {
+  width: calc((100% - 15px) / 2);
+}
+#offercards > a .card {
+  height: 100%;
+}
+.card > div > .offercard-picture {
+  height: 320px;
+}
+
+/* ---PAGINATIONVIEW------------- */
+
+#pagination {
+  max-width: var(--container-width-bp-650);
+}
+#pagination .number-page > div {
+  font-size: 14px;
+  height: 30px;
+  width: 30px;
+}
+
+/* ---PAYMENTVIEW------------------- */
+#payment-bloc > div section {
+  min-width: 443px;
+}
+
+/* ---PUBLISHVIEW------------------- */
+
+#main-publish {
+  padding-top: 40px;
+}
+#main-publish input[type='text'],
+#main-publish textarea,
+#main-publish .content-bloc p {
+  width: 455px;
+}
+#main-publish form .pictures-preview > div {
+  width: calc((100% - 20px) / 3);
+}
+
+/* ---NOTFOUNDVIEW------------------- */
+#main-notfound .container .first-col p {
+  font-size: 14px;
+}

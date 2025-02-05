@@ -3,15 +3,15 @@ import BtnPublishOffer from './BtnPublishOffer.vue'
 </script>
 
 <template>
-  <div class="time-to-sell">
-    <img src="../assets/imgs/onde-corail.svg" alt="onde corail" />
+  <div class="time-to-sell" id="time-to-sell">
+    <img src="../assets/imgs/onde-corail.svg" alt="onde corail" class="img-coral" />
 
-    <div class="deposit">
+    <div class="deposit" id="deposit">
       <p>C'est le moment de vendre</p>
       <BtnPublishOffer />
     </div>
 
-    <img src="../assets/imgs/feuille-bleue.svg" alt="feuille bleue" />
+    <img src="../assets/imgs/feuille-bleue.svg" alt="feuille bleue" class="img-blue" />
   </div>
 </template>
 

@@ -41,8 +41,8 @@ const handleSubmit = () => {
 }
 </script>
 <template>
-  <form action="sort by price" @submit.prevent="handleSubmit">
-    <div>
+  <form action="sort by price" id="form-sort" @submit.prevent="handleSubmit">
+    <div id="sortMaxMin">
       <section>
         <p>Prix</p>
         <div class="input-number">
@@ -61,7 +61,7 @@ const handleSubmit = () => {
 
       <section>
         <p>Tri</p>
-        <div class="input-radio">
+        <div class="input-radio-hidden650">
           <label for="increasing"
             >Prix croissants<input
               type="radio"
@@ -80,6 +80,32 @@ const handleSubmit = () => {
 
           <label for="noSorting"
             >Pas de tri<input type="radio" value="" id="noSorting" v-model="sortByPrice"
+          /></label>
+        </div>
+
+        <div class="input-radio-display650">
+          <label for="increasing"
+            ><font-awesome-icon :icon="['fas', 'sort-amount-up']" /><input
+              type="radio"
+              value="price:asc"
+              id="increasing"
+              v-model="sortByPrice"
+          /></label>
+
+          <label for="decreasing"
+            ><font-awesome-icon :icon="['fas', 'sort-amount-down']" /><input
+              type="radio"
+              value="price:desc"
+              id="decreasing"
+              v-model="sortByPrice"
+          /></label>
+
+          <label for="noSorting"
+            ><font-awesome-icon :icon="['fas', 'ban']" /><input
+              type="radio"
+              value=""
+              id="noSorting"
+              v-model="sortByPrice"
           /></label>
         </div>
       </section>
@@ -147,15 +173,14 @@ input::-webkit-inner-spin-button {
 }
 
 /* -----section sort--------- */
-.input-radio {
+.input-radio-hidden650 {
   display: flex;
   gap: 15px;
-  height: 43px;
   align-items: center;
 }
 
 /* -----button---------------- */
-form button {
+form > button {
   padding: 8px 10px;
   background-color: var(--orange);
   border: none;
@@ -163,5 +188,9 @@ form button {
   font-size: 14px;
   font-weight: bold;
   border-radius: 10px;
+}
+
+.input-radio-display650 {
+  display: none;
 }
 </style>

@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router'
 </script>
 <template>
-  <main>
+  <main id="main-notfound">
     <div class="container">
       <div class="first-col">
         <div>
@@ -33,10 +33,13 @@ main {
   height: 100%;
 }
 
-.container > div {
-  /* border: 1px solid plum; */
-  flex: 1;
+.first-col {
+  flex: 2;
   height: 100%;
+}
+
+.second-col {
+  flex: 1;
 }
 
 /* ---FIRST-COLUMN----------- */
