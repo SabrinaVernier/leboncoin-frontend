@@ -105,3 +105,8 @@ form .select-picture {
   position: absolute;
   width: 100%;
 }
+
+/* ---FOOTER--------------------------- */
+footer {
+  min-width: var(--container-width-bp-880);
+}

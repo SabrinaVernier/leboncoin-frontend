@@ -6,6 +6,7 @@ import SignupView from '@/views/SignupView.vue'
 import LoginView from '@/views/LoginView.vue'
 import PaymentView from '@/views/PaymentView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import ProfileView from '@/views/ProfileView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -53,6 +54,14 @@ const router = createRouter({
       name: 'payment',
       component: PaymentView,
       props: true,
+      meta: {
+        requireAuth: true,
+      },
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
       meta: {
         requireAuth: true,
       },

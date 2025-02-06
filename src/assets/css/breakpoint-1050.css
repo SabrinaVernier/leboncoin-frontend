@@ -64,11 +64,14 @@ header {
   height: 300px;
   margin: 5px 0px;
 }
+#offercards .date {
+  padding-top: 10px;
+}
 
 /* ---OFFERVIEW----------------- */
 
 #main-offerview .container {
-  padding: 10px 20px 20px;
+  padding: 20px;
 }
 .container > .section-user {
   display: none;
@@ -106,8 +109,18 @@ main > .container > .section-infos {
   padding: 20px;
 }
 
+/* ---PROFILEVIEW-------------------- */
+#main-profileview {
+  padding: 20px;
+}
+
 /* ---NOTFOUNDVIEW------------------- */
 
 #main-notfound .first-col {
   margin-left: 20px;
+}
+
+/* ---FOOTER-------------------------- */
+footer {
+  min-width: var(--container-width-bp-1050);
 }

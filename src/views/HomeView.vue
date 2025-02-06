@@ -12,7 +12,6 @@ const offersList = ref('')
 const numberOfPages = ref(1)
 
 const props = defineProps(['page', 'title', 'minprice', 'maxprice', 'sort'])
-// console.log('props homeView >>>', props)
 
 onMounted(() => {
   watchEffect(async () => {

@@ -165,7 +165,7 @@ const updateTotal = computed(() => {
           <div v-else class="card-infos" id="card-infos">
             <h3>Coordonnées bancaires</h3>
             <div id="card-element"></div>
-            <p v-if="currentTransaction">paiement en cours...</p>
+            <p v-if="currentTransaction" class="current-transaction">Paiement en cours ...</p>
             <div class="button" v-else>
               <button @click="handlePayment">Payer</button>
               <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
@@ -383,6 +383,15 @@ form input:not(input[type='tel']) {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.current-transaction {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  font-style: italic;
+  padding: 10px;
+  color: var(--orange);
 }
 
 /* -----SECOND-COLUMN------------ */

@@ -37,7 +37,7 @@
 /* ---HOMEVIEW---------------- */
 
 #main-homeview {
-  min-width: var(--container-width-bp-650);
+  min-width: calc(var(--container-width-bp-650) - 40px);
 }
 #main-homeview h1 {
   font-size: 14px;
@@ -129,13 +129,26 @@
 #main-publish input[type='text'],
 #main-publish textarea,
 #main-publish .content-bloc p {
-  width: 455px;
+  width: 100%;
 }
 #main-publish form .pictures-preview > div {
   width: calc((100% - 20px) / 3);
 }
 
+/* ---PROFILEVIEW-------------------- */
+#main-profileview .title {
+  font-size: 18px;
+}
+#main-profileview .price {
+  font-size: 16px;
+}
+
 /* ---NOTFOUNDVIEW------------------- */
 #main-notfound .container .first-col p {
   font-size: 14px;
+}
+
+/* ---FOOTER-------------------------- */
+footer {
+  min-width: var(--container-width-bp-650);
 }

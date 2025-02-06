@@ -11,13 +11,13 @@ const globalStore = inject('GlobalStore')
 const route = useRoute()
 const router = useRouter()
 
+const text = ref('')
+
 const disconnect = () => {
   $cookies.remove('userInfos')
   globalStore.connectedUser.value = []
   router.push({ name: 'home' })
 }
-
-const text = ref('')
 
 const handleSubmit = () => {
   // console.log('handleSubmit>>>', text.value, route.query)
@@ -35,6 +35,14 @@ const handleSubmit = () => {
     name: 'home',
     query: queries,
   })
+}
+
+const resetInput = (event) => {
+  if (event.target.value === '') {
+    const queries = { ...route.query }
+    delete queries.title
+    router.push({ name: 'home', query: queries })
+  }
 }
 </script>
 <template>
@@ -54,21 +62,31 @@ const handleSubmit = () => {
               name="search"
               id="search"
               v-model="text"
+              @input="resetInput"
             />
             <button><font-awesome-icon :icon="['fas', 'search']" /></button>
           </form>
         </div>
 
         <div class="user-log-in" id="user-log-in">
-          <font-awesome-icon :icon="['far', 'user']" />
+          <font-awesome-icon
+            :icon="['far', 'user']"
+            v-if="globalStore.connectedUser.value.length === 0"
+          />
+          <div class="avatar" v-else>
+            <RouterLink :to="{ name: 'profile' }">
+              <p>{{ globalStore.connectedUser.value[0].username.charAt().toUpperCase() }}</p>
+            </RouterLink>
+          </div>
+
           <RouterLink :to="{ name: 'login' }" v-if="globalStore.connectedUser.value.length === 0">
             <button>Se connecter</button>
           </RouterLink>
 
-          <div v-else>
-            <p>
-              {{ globalStore.connectedUser.value[0].username }}
-            </p>
+          <div class="username" v-else>
+            <RouterLink :to="{ name: 'profile' }">
+              <p>{{ globalStore.connectedUser.value[0].username }}</p>
+            </RouterLink>
             <div class="disconnect-icon">
               <font-awesome-icon :icon="['fas', 'sign-out-alt']" @click="disconnect()" />
             </div>
@@ -170,7 +188,7 @@ form button {
   text-decoration: none;
   color: var(--black);
   position: relative;
-  padding: 0px 20px;
+  padding: 0px 30px 0px 20px;
 }
 .user-log-in p {
   font-size: 12px;
@@ -179,6 +197,25 @@ form button {
   border: none;
   background-color: #fff;
   font-size: 12px;
+}
+.avatar {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  padding: 10%;
+  background-color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+.avatar a {
+  color: white;
+  text-decoration: none;
+}
+.username a {
+  color: inherit;
+  text-decoration: none;
 }
 .disconnect-icon {
   position: absolute;

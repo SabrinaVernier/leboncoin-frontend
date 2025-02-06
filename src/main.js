@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/css/main.css'
 
 import { createApp, ref } from 'vue'
 import VueCookies from 'vue-cookies'
@@ -16,6 +16,7 @@ import {
   faClock,
   faEyeSlash,
   faEye,
+  faImage,
 } from '@fortawesome/free-regular-svg-icons'
 
 import {
@@ -33,6 +34,7 @@ import {
   faBan,
   faSortAmountUp,
   faSortAmountDown,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -56,6 +58,8 @@ library.add(
   faBan,
   faSortAmountUp,
   faSortAmountDown,
+  faTrash,
+  faImage,
 )
 
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
