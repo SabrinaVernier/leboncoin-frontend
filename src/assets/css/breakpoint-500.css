@@ -1,0 +1,161 @@
+/* @media(max-width: 500px)------------------------ */
+/* Color Mark */
+
+body {
+  background-color: rgb(252, 184, 157);
+}
+
+/* ---HEADER------------------ */
+
+#header {
+  width: 100vw;
+}
+#user-log-in {
+  padding: unset;
+}
+
+/* ---HOMEVIEW---------------- */
+
+#main-homeview {
+  min-width: var(--container-width-bp-500);
+}
+#main-homeview .container {
+  width: 100%;
+}
+
+/* timetosell--- */
+#time-to-sell {
+  height: 120px;
+  max-width: calc(100vw - 40px);
+  position: relative;
+}
+#time-to-sell #deposit {
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#time-to-sell p {
+  font-size: 20px;
+}
+.hidden-500 {
+  display: none;
+}
+s
+
+/* offercard--- */
+#offercards {
+  width: 100%;
+}
+
+/* pagination---*/
+
+#pagination {
+  max-width: var(--container-width-bp-500);
+}
+#pagination .number-page .noSelected {
+  display: none;
+}
+#pagination .number-page > div {
+  font-size: 12px;
+  height: 25px;
+  width: 25px;
+}
+
+/* ---OFFERVIEW---------------- */
+/* nothing */
+
+/* ---LOGINVIEW---------------- */
+
+#main-loginview {
+  min-width: var(--container-width-bp-500);
+}
+#main-loginview .container {
+  padding: 10px;
+}
+#main-loginview form {
+  height: 100%;
+  width: 100%;
+}
+#main-loginview label,
+#main-loginview button {
+  margin-bottom: unset;
+}
+#main-loginview .login p,
+#main-loginview form > p {
+  font-size: 14px;
+}
+
+/* ---SIGNUPVIEW---------------- */
+
+#main-signupview {
+  min-width: var(--container-width-bp-500);
+}
+#main-signupview .container {
+  padding: 10px;
+}
+#main-signupview form {
+  height: 100%;
+  width: 100%;
+}
+#main-signupview label {
+  margin-bottom: unset;
+}
+#main-signupview .signup p,
+#main-signupview form > p {
+  font-size: 14px;
+}
+#main-signupview .signup {
+  margin-top: unset;
+}
+
+/* ---PAYMENTVIEW------------------- */
+
+#payment-bloc > div section {
+  min-width: 100%;
+}
+#payment-bloc .protection p {
+  font-size: 13px;
+}
+#payment-bloc .first-col form input:not(input[type='tel']) {
+  margin-bottom: 15px;
+}
+
+/* ---PUBLISVIEW--------------------- */
+/* nothing */
+
+/* ---PROFILEVIEW-------------------- */
+
+#main-profileview .second-part > div {
+  height: 120px;
+}
+#main-profileview .second-part img {
+  height: 80px;
+  width: 80px;
+}
+#main-profileview .second-part > div > div {
+  gap: 10px;
+}
+#main-profileview .title {
+  font-size: 16px;
+}
+#main-profileview .price {
+  font-size: 14px;
+}
+
+/* ---NOTFOUNDVIEW------------------- */
+
+#main-notfound {
+  min-width: var(--container-width-bp-500);
+  margin-left: unset;
+}
+#main-notfound .container .first-col {
+  margin-left: unset;
+  padding: 0px 10px;
+}
+
+/* ---FOOTER-------------------------- */
+
+footer {
+  min-width: var(--container-width-bp-500);
+}

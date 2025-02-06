@@ -61,7 +61,7 @@ const userLogin = async () => {
 }
 </script>
 <template>
-  <main>
+  <main id="main-loginview">
     <div class="container">
       <form action="log-in" @submit.prevent="userLogin">
         <h2>Bonjour !</h2>

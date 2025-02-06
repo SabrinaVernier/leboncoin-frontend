@@ -60,7 +60,7 @@ const userSignup = async () => {
 }
 </script>
 <template>
-  <main>
+  <main id="main-signupview">
     <div class="container">
       <form action="sign-up" @submit.prevent="userSignup()">
         <h2>Bonjour !</h2>

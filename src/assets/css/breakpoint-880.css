@@ -96,6 +96,9 @@ form .select-picture {
   width: calc((100% - 30px) / 4);
 }
 
+/* ---PROFILEVIEW-------------------- */
+/* nothing */
+
 /* ---NOTFOUNDVIEW------------------- */
 
 #main-notfound .container {
@@ -107,6 +110,7 @@ form .select-picture {
 }
 
 /* ---FOOTER--------------------------- */
+
 footer {
   min-width: var(--container-width-bp-880);
 }

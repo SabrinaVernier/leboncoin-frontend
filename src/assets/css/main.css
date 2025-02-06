@@ -4,6 +4,7 @@
 @import './breakpoint-1050.css' (max-width: 1050px);
 @import './breakpoint-880.css' (max-width: 880px);
 @import './breakpoint-650.css' (max-width: 650px);
+@import './breakpoint-500.css' (max-width: 500px);
 
 /* -------------------------- */
 :root {
@@ -27,6 +28,7 @@
   --container-width-bp-1050: 880px;
   --container-width-bp-880: 650px;
   --container-width-bp-650: 500px;
+  --container-width-bp-500: 350px;
 }
 
 * {
@@ -48,12 +50,6 @@ main {
   margin-top: var(--header-height);
 }
 
-@media (max-width: 650px) {
-  main {
-    margin-top: var(--header-height-bp-650);
-  }
-}
-
 button {
   font-family: 'Nunito Sans', serif;
   font-size: inherit;
@@ -65,10 +61,10 @@ textarea:focus {
   outline: none;
 }
 
-/* ---RESPONSIVE--------- */
-/* @media (max-width: 1050px) {
-  .container {
-    max-width: var(--container-width-bp-1050);
-    margin: 0 auto;
+/* ---responsive main--------- */
+@media (max-width: 650px) {
+  main {
+    min-height: calc(100% - (var(--header-height-bp-650)) - (var(--footer-height)));
+    margin-top: unset;
   }
-} */
+}

@@ -65,7 +65,9 @@ onMounted(() => {
         :page="page"
       />
 
-      <h1>Des millions de petites annonces et autant d'occasions de se faire plaisir</h1>
+      <h1 class="hidden-500">
+        Des millions de petites annonces et autant d'occasions de se faire plaisir
+      </h1>
 
       <TimeToSell />
 

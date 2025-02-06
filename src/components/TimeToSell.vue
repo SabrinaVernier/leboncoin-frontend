@@ -11,7 +11,7 @@ import BtnPublishOffer from './BtnPublishOffer.vue'
       <BtnPublishOffer />
     </div>
 
-    <img src="../assets/imgs/feuille-bleue.svg" alt="feuille bleue" class="img-blue" />
+    <img src="../assets/imgs/feuille-bleue.svg" alt="feuille bleue" class="img-blue hidden-500" />
   </div>
 </template>
 

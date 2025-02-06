@@ -28,7 +28,7 @@ const selectedPage = (numPage) => {
         @click="selectedPage(num)"
         v-for="num in numberOfPages"
         :key="num"
-        :class="{ selected: num === page }"
+        :class="{ selected: num === page, noSelected: num !== page }"
       >
         {{ num }}
       </div>

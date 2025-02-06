@@ -6,8 +6,10 @@
 } */
 
 /* ---HEADER------------------ */
+
 #header {
   height: var(--header-height-bp-650);
+  position: relative;
 }
 
 #header .functionality {
@@ -30,8 +32,8 @@
 }
 
 #user-log-in {
-  position: fixed;
-  right: 20px;
+  position: absolute;
+  right: 40px;
 }
 
 /* ---HOMEVIEW---------------- */
@@ -89,11 +91,6 @@
   object-position: left;
 }
 
-/* buttonpublish--- */
-#time-to-sell button {
-  font-size: 14px;
-  padding: 10px;
-}
 /* offercard--- */
 #offercards > a {
   width: calc((100% - 15px) / 2);
@@ -105,8 +102,7 @@
   height: 320px;
 }
 
-/* ---PAGINATIONVIEW------------- */
-
+/* pagination--- */
 #pagination {
   max-width: var(--container-width-bp-650);
 }
@@ -117,6 +113,7 @@
 }
 
 /* ---PAYMENTVIEW------------------- */
+
 #payment-bloc > div section {
   min-width: 443px;
 }
@@ -136,6 +133,7 @@
 }
 
 /* ---PROFILEVIEW-------------------- */
+
 #main-profileview .title {
   font-size: 18px;
 }
@@ -144,11 +142,13 @@
 }
 
 /* ---NOTFOUNDVIEW------------------- */
+
 #main-notfound .container .first-col p {
   font-size: 14px;
 }
 
 /* ---FOOTER-------------------------- */
+
 footer {
   min-width: var(--container-width-bp-650);
 }
