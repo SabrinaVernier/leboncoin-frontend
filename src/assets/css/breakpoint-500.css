@@ -11,7 +11,10 @@
   width: 100vw;
 }
 #user-log-in {
-  padding: unset;
+  padding-right: 15px;
+}
+#user-log-in .disconnect-icon {
+  right: -20px;
 }
 
 /* ---HOMEVIEW---------------- */
@@ -26,7 +29,7 @@
 /* timetosell--- */
 #time-to-sell {
   height: 120px;
-  max-width: calc(100vw - 40px);
+  max-width: calc(100vw - 20px);
   position: relative;
 }
 #time-to-sell #deposit {
@@ -49,7 +52,6 @@ s
 }
 
 /* pagination---*/
-
 #pagination {
   max-width: var(--container-width-bp-500);
 }
@@ -63,7 +65,16 @@ s
 }
 
 /* ---OFFERVIEW---------------- */
-/* nothing */
+
+#main-offerview .img-article {
+  width: 80%;
+}
+#main-offerview {
+  min-width: var(--container-width-bp-500);
+}
+#main-offerview .container {
+  padding: 10px;
+}
 
 /* ---LOGINVIEW---------------- */
 

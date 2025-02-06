@@ -112,6 +112,11 @@
   width: 30px;
 }
 
+/* ---OFFERVIEW---------------- */
+#main-offerview .img-article {
+  width: 80%;
+}
+
 /* ---PAYMENTVIEW------------------- */
 
 #payment-bloc > div section {
