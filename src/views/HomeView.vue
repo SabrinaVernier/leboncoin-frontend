@@ -29,7 +29,7 @@ onMounted(() => {
       }
 
       const { data } = await axios.get(
-        `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers?populate[0]=owner.avatar&populate[1]=pictures${priceFilters}&sort=${props.sort}&filters[title][$containsi]=${props.title}&pagination[page]=${props.page}&pagination[pageSize]=10`,
+        `http://localhost:1337/api/offers?populate[0]=owner.avatar&populate[1]=pictures${priceFilters}&sort=${props.sort}&filters[title][$containsi]=${props.title}&pagination[page]=${props.page}&pagination[pageSize]=10`,
       )
 
       offersList.value = data.data

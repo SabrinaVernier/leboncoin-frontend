@@ -16,7 +16,7 @@ const isDeleting = ref(false)
 onMounted(async () => {
   try {
     const { data } = await axios.get(
-      `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/users/me?populate[0]=offers&populate[1]=avatar&populate[2]=offers.pictures`,
+      `http://localhost:1337/api/users/me?populate[0]=offers&populate[1]=avatar&populate[2]=offers.pictures`,
       {
         headers: {
           Authorization: `Bearer ${globalStore.connectedUser.value[0].jwt}`,
@@ -33,14 +33,11 @@ onMounted(async () => {
 const deleteOffer = async (offerId) => {
   isDeleting.value = true
   try {
-    const { data } = await axios.delete(
-      `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers/${offerId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${globalStore.connectedUser.value[0].jwt}`,
-        },
+    const { data } = await axios.delete(`http://localhost:1337/api/offers/${offerId}`, {
+      headers: {
+        Authorization: `Bearer ${globalStore.connectedUser.value[0].jwt}`,
       },
-    )
+    })
     isDeleting.value = false
     alert('Votre annonce a bien été supprimée !')
 
@@ -61,7 +58,7 @@ const deleteOffer = async (offerId) => {
         <div class="avatar" v-if="userInfos.avatar">
           <img :src="userInfos.avatar.url" alt="avatar" />
         </div>
-        <div class="avatar" v-else>
+        <div class="missing-avatar" v-else>
           <p>{{ userInfos.username.charAt(0) }}</p>
         </div>
         <div class="identity">
@@ -151,6 +148,18 @@ h1 {
 .avatar {
   height: 100px;
   width: 100px;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.missing-avatar {
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   background-color: var(--grey);
   display: flex;
@@ -158,7 +167,7 @@ h1 {
   justify-content: center;
 }
 
-.avatar p {
+.missing-avatar p {
   color: white;
   font-size: 40px;
 }

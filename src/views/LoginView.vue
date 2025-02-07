@@ -32,10 +32,10 @@ const userLogin = async () => {
   if (identifier.value && password.value) {
     contentButton.value = 'Connexion en cours...'
     try {
-      const { data } = await axios.post(
-        `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/auth/local`,
-        { identifier: identifier.value, password: password.value },
-      )
+      const { data } = await axios.post(`http://localhost:1337/api/auth/local`, {
+        identifier: identifier.value,
+        password: password.value,
+      })
       globalStore.changeToken({ username: data.user.username, jwt: data.jwt, id: data.user.id })
       console.log('login id >>>', data.user.id)
       console.log('data', data)

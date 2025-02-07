@@ -6,14 +6,14 @@ import { loadStripe } from '@stripe/stripe-js'
 import axios from 'axios'
 
 // clé publique-------------API-Reacteur--------
-const stripePromise = loadStripe(
-  'pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP',
-)
-
-// Ma clé publique ------------mon-backend------
 // const stripePromise = loadStripe(
-//   'pk_test_51Qmb0dE1eNp1L4yW0zW3sP8YD4LCXNfGcEq1zRwnbbiViCQEcTItJLx51tlSR9btZrgXijw8fmsbGXxmZN39a1so00qzUTdy5b',
+//   'pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP',
 // )
+
+// Ma clé publique --------API-mon-backend------
+const stripePromise = loadStripe(
+  'pk_test_51Qmb0dE1eNp1L4yW0zW3sP8YD4LCXNfGcEq1zRwnbbiViCQEcTItJLx51tlSR9btZrgXijw8fmsbGXxmZN39a1so00qzUTdy5b',
+)
 
 const globalStore = inject('GlobalStore')
 const router = useRouter()
@@ -43,8 +43,13 @@ onBeforeMount(async () => {
 
 onMounted(async () => {
   try {
+    // const { data } = await axios.get(
+    //   `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers/${props.id}?populate[0]=pictures`,
+    // )
+
+    // ----mon-backend--------
     const { data } = await axios.get(
-      `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers/${props.id}?populate[0]=pictures`,
+      `http://localhost:1337/api/offers/${props.id}?populate[0]=pictures`,
     )
 
     console.log('onMount data', data.data)
@@ -74,7 +79,7 @@ const handlePayment = async () => {
       // )
 
       const { data } = await axios.post(
-        'https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers/buy',
+        'http://localhost:1337/api/offers/buy',
         {
           token: stripeToken,
           amount: updateTotal.value,
@@ -116,6 +121,29 @@ const updateTotal = computed(() => {
     optionPrice = 15.6
   }
   return offerInfos.value.attributes.price + 0.99 + optionPrice
+})
+
+// -----bonus-------
+const adjustedPrice = computed(() => {
+  let price = ''
+  const numToStr = offerInfos.value.attributes.price.toString()
+  const str1 = numToStr.slice(numToStr.length - 3)
+  const str2 = numToStr.slice(0, numToStr.length - 3)
+  if (offerInfos.value.attributes.price >= 1000 && offerInfos.value.attributes.price < 1000000) {
+    price = str2 + ' ' + str1
+    // console.log('reslt1 = ' + price)
+  } else if (
+    offerInfos.value.attributes.price >= 1000000 &&
+    offerInfos.value.attributes.price < 1000000000
+  ) {
+    const str3 = numToStr.slice(numToStr.length - 6, numToStr.length - 3)
+    const str4 = numToStr.slice(0, numToStr.length - 6)
+    price = str4 + ' ' + str3 + ' ' + str1
+  } else {
+    price = offerInfos.value.attributes.price
+    // console.log('result2 =' + price)
+  }
+  return price + ',00'
 })
 </script>
 <template>
@@ -195,7 +223,7 @@ const updateTotal = computed(() => {
                 <h4>{{ offerInfos.attributes.title }}</h4>
               </div>
               <div class="price">
-                <span>{{ offerInfos.attributes.price }},00 €</span>
+                <span>{{ adjustedPrice }}</span>
               </div>
             </div>
 

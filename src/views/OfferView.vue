@@ -13,11 +13,11 @@ const selectedOffer = ref(null)
 onMounted(async () => {
   try {
     const { data } = await axios.get(
-      `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers/${props.id}?populate[0]=owner.avatar&populate[1]=pictures`,
+      `http://localhost:1337/api/offers/${props.id}?populate[0]=owner.avatar&populate[1]=pictures`,
     )
     // console.log(data.data)
     selectedOffer.value = data.data
-    // console.log(selectedOffer.value) // obj {id:18}
+    console.log(selectedOffer.value) // obj {id:18}
   } catch (error) {
     console.log('catch OfferView >>>', error)
   }
@@ -40,6 +40,13 @@ const adjustedPrice = computed(() => {
   ) {
     price = str2 + ' ' + str1
     // console.log('reslt1 = ' + price)
+  } else if (
+    selectedOffer.value.attributes.price >= 1000000 &&
+    selectedOffer.value.attributes.price < 1000000000
+  ) {
+    const str3 = numToStr.slice(numToStr.length - 6, numToStr.length - 3)
+    const str4 = numToStr.slice(0, numToStr.length - 6)
+    price = str4 + ' ' + str3 + ' ' + str1
   } else {
     price = selectedOffer.value.attributes.price
     // console.log('result2 =' + price)
