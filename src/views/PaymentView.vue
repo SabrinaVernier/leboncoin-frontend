@@ -10,7 +10,7 @@ import axios from 'axios'
 //   'pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP',
 // )
 
-// Ma clé publique --------API-mon-backend------
+// Ma clé publique-mon-Stripe-------API-mon-backend------
 const stripePromise = loadStripe(
   'pk_test_51Qmb0dE1eNp1L4yW0zW3sP8YD4LCXNfGcEq1zRwnbbiViCQEcTItJLx51tlSR9btZrgXijw8fmsbGXxmZN39a1so00qzUTdy5b',
 )
@@ -47,9 +47,14 @@ onMounted(async () => {
     //   `https://site--strapileboncoin--2m8zk47gvydr.code.run/api/offers/${props.id}?populate[0]=pictures`,
     // )
 
-    // ----mon-backend--------
+    // ----mon-backend-local---------------------
+    // const { data } = await axios.get(
+    //   `http://localhost:1337/api/offers/${props.id}?populate[0]=pictures`,
+    // )
+
+    // ----mon-backend-el-ligne-Northflank--------
     const { data } = await axios.get(
-      `http://localhost:1337/api/offers/${props.id}?populate[0]=pictures`,
+      `https://site--leboncoin-backend--2ztmlbwdnwqd.code.run/api/offers/${props.id}?populate[0]=pictures`,
     )
 
     console.log('onMount data', data.data)
@@ -79,7 +84,7 @@ const handlePayment = async () => {
       // )
 
       const { data } = await axios.post(
-        'http://localhost:1337/api/offers/buy',
+        'https://site--leboncoin-backend--2ztmlbwdnwqd.code.run/api/offers/buy',
         {
           token: stripeToken,
           amount: updateTotal.value,

@@ -13,7 +13,7 @@ const selectedOffer = ref(null)
 onMounted(async () => {
   try {
     const { data } = await axios.get(
-      `http://localhost:1337/api/offers/${props.id}?populate[0]=owner.avatar&populate[1]=pictures`,
+      `https://site--leboncoin-backend--2ztmlbwdnwqd.code.run/api/offers/${props.id}?populate[0]=owner.avatar&populate[1]=pictures`,
     )
     // console.log(data.data)
     selectedOffer.value = data.data

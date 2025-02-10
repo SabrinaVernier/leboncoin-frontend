@@ -32,11 +32,14 @@ const userSignup = async () => {
   if (username.value && email.value && password.value) {
     contentButton.value = 'Inscription en cours...'
     try {
-      const { data } = await axios.post(`http://localhost:1337/api/auth/local/register`, {
-        email: email.value,
-        username: username.value,
-        password: password.value,
-      })
+      const { data } = await axios.post(
+        `https://site--leboncoin-backend--2ztmlbwdnwqd.code.run/api/auth/local/register`,
+        {
+          email: email.value,
+          username: username.value,
+          password: password.value,
+        },
+      )
       globalStore.changeToken({ username: data.user.username, jwt: data.jwt, id: data.user.id })
 
       $cookies.set('userInfos', globalStore.connectedUser.value)

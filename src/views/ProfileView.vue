@@ -16,7 +16,7 @@ const isDeleting = ref(false)
 onMounted(async () => {
   try {
     const { data } = await axios.get(
-      `http://localhost:1337/api/users/me?populate[0]=offers&populate[1]=avatar&populate[2]=offers.pictures`,
+      `https://site--leboncoin-backend--2ztmlbwdnwqd.code.run/api/users/me?populate[0]=offers&populate[1]=avatar&populate[2]=offers.pictures`,
       {
         headers: {
           Authorization: `Bearer ${globalStore.connectedUser.value[0].jwt}`,
@@ -33,11 +33,14 @@ onMounted(async () => {
 const deleteOffer = async (offerId) => {
   isDeleting.value = true
   try {
-    const { data } = await axios.delete(`http://localhost:1337/api/offers/${offerId}`, {
-      headers: {
-        Authorization: `Bearer ${globalStore.connectedUser.value[0].jwt}`,
+    const { data } = await axios.delete(
+      `https://site--leboncoin-backend--2ztmlbwdnwqd.code.run/api/offers/${offerId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${globalStore.connectedUser.value[0].jwt}`,
+        },
       },
-    })
+    )
     isDeleting.value = false
     alert('Votre annonce a bien été supprimée !')
 

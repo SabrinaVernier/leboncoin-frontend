@@ -62,12 +62,16 @@ const handleSubmit = async () => {
     formData.append('data', stringifiedInfos)
 
     try {
-      const { data } = await axios.post('http://localhost:1337/api/offers', formData, {
-        headers: {
-          Authorization: 'Bearer ' + globalStore.connectedUser.value[0].jwt,
-          'Content-Type': 'multipart/form-data',
+      const { data } = await axios.post(
+        'https://site--leboncoin-backend--2ztmlbwdnwqd.code.run/api/offers',
+        formData,
+        {
+          headers: {
+            Authorization: 'Bearer ' + globalStore.connectedUser.value[0].jwt,
+            'Content-Type': 'multipart/form-data',
+          },
         },
-      })
+      )
 
       console.log('Publish - response request>>>', data)
       //accès id de l'article créé-------
