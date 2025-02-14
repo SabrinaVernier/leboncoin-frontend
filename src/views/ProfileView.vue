@@ -70,9 +70,7 @@ const deleteOffer = async (offerId) => {
         </div>
       </section>
 
-      <h2 v-if="userInfos && userInfos.offers.length > 0">
-        {{ userInfos.offers.length }} annonces
-      </h2>
+      <h2 v-if="userInfos && userInfos.offers">{{ userInfos.offers.length }} annonces</h2>
 
       <section class="second-part-no-offer" v-if="userInfos && userInfos.offers.length === 0">
         <img src="../assets/imgs/empty-image..svg" alt="empty image" />
