@@ -12,8 +12,12 @@ const props = defineProps({
 // console.log(props.offerInfos.attributes.owner.data.attributes.avatar.data)
 
 const owner = props.offerInfos.attributes.owner
-const avatar = props.offerInfos.attributes.owner.data.attributes.avatar
 const pictures = props.offerInfos.attributes.pictures
+let avatar = null
+
+if (props.offerInfos.attributes.owner.data) {
+  avatar = props.offerInfos.attributes.owner.data.attributes.avatar
+}
 
 // ----format date-----
 const handleFormatDate = computed(() => {
