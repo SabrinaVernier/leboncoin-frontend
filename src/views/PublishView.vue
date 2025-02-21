@@ -316,6 +316,7 @@ input[type='file'] {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  width: 100%;
 }
 
 .pictures-preview > div {
