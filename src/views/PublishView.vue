@@ -52,6 +52,8 @@ const handleSubmit = async () => {
       }
     }
 
+    console.log('pictures value>>>', pictures.value)
+
     const stringifiedInfos = JSON.stringify({
       title: title.value,
       description: content.value,
@@ -60,6 +62,8 @@ const handleSubmit = async () => {
     })
 
     formData.append('data', stringifiedInfos)
+
+    console.log('formData>>>', formData)
 
     try {
       const { data } = await axios.post(

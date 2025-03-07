@@ -3,7 +3,7 @@
   <footer>
     <div class="container">
       <p>
-        Made by <a href="https://github.com/SabrinaVernier" target="_blank">Sabrina</a> with
+        Made by <a href="https://github.com/SabrinaVernier" target="_blank">Sabrina Vernier</a> with
         <a href="https://vuejs.org/" target="_blank">Vue.js</a>
       </p>
     </div>
