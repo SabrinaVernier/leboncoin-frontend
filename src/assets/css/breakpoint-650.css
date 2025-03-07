@@ -47,7 +47,7 @@
 
 /* searchbysort--- */
 #form-sort {
-  margin-bottom: 50px;
+  margin: 20px 0 30px 0;
 }
 #main-homeview .container .input-radio-display650 {
   display: flex;
@@ -71,6 +71,9 @@
 }
 #main-homeview .container form p {
   font-size: 18px;
+}
+#sortMaxMin {
+  gap: 20px;
 }
 
 /* timetosell--- */
