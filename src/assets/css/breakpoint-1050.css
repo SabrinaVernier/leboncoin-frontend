@@ -20,6 +20,10 @@ header {
   min-width: var(--container-width-bp-1050);
   padding: 10px;
 }
+#main-homeview h1 {
+  font-size: 20px;
+  text-align: center;
+}
 
 /* search-by-sort-- */
 #form-sort {
@@ -97,6 +101,8 @@ main > .container > .section-infos {
   gap: 0px;
 }
 
+/* ---LOGIN------------------------- */
+/* --nothing */
 /* ---PAYMENTVIEW------------------- */
 
 #payment-bloc {

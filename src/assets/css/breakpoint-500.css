@@ -8,7 +8,7 @@
 /* ---HEADER------------------ */
 
 #header {
-  width: 100vw;
+  max-width: 100vw;
 }
 #user-log-in {
   padding-right: 15px;
@@ -82,10 +82,10 @@ s
   min-width: var(--container-width-bp-500);
 }
 #main-loginview .container {
-  padding: 10px;
+  padding: 10px 20px;
 }
 #main-loginview form {
-  height: 100%;
+  height: fit-content;
   width: 100%;
 }
 #main-loginview label,
@@ -103,10 +103,10 @@ s
   min-width: var(--container-width-bp-500);
 }
 #main-signupview .container {
-  padding: 10px;
+  padding: 10px 20px;
 }
 #main-signupview form {
-  height: 100%;
+  height: fit-content;
   width: 100%;
 }
 #main-signupview label {

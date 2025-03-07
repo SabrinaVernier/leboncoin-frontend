@@ -113,7 +113,7 @@ const deleteOffer = async (offerId) => {
 .container {
   padding-top: 40px;
   padding-bottom: 20px;
-  height: 100%;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 main > p:first-child {

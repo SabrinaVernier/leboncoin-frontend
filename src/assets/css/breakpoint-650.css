@@ -120,6 +120,16 @@
   width: 80%;
 }
 
+/* ---LOGINVIEW---------------- */
+#main-loginview .container {
+  height: calc(100vh - var(--header-height-bp-650) - var(--footer-height));
+}
+
+/* ---SIGNUPVIEW---------------- */
+#main-signupview .container {
+  height: calc(100vh - var(--header-height-bp-650) - var(--footer-height));
+}
+
 /* ---PAYMENTVIEW------------------- */
 
 #payment-bloc > div section {
@@ -147,6 +157,9 @@
 }
 #main-profileview .price {
   font-size: 16px;
+}
+#main-profileview .container {
+  height: calc(100vh - var(--header-height-bp-650) - var(--footer-height));
 }
 
 /* ---NOTFOUNDVIEW------------------- */
